@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thiệp mời lễ tốt nghiệp của Đặng Bình An">
+  <title>Thiệp mời lễ tốt nghiệp - Đặng Bình An</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <noscript>
+    <p class="noscript-warning">Vui lòng bật JavaScript để xem đầy đủ hiệu ứng của thiệp.</p>
+  </noscript>
+
+  <section class="opening-screen" id="openingScreen" aria-label="Màn hình mở thiệp">
+    <div class="opening-glow" aria-hidden="true"></div>
+    <div class="envelope-card">
+      <div class="envelope-flap" aria-hidden="true"></div>
+      <img class="opening-cap" src="assets/graduation-cap.svg" alt="Mũ tốt nghiệp">
+      <p class="opening-kicker">THÂN GỬI BẠN</p>
+      <h1>Thiệp mời lễ tốt nghiệp</h1>
+      <p class="opening-name">Đặng Bình An</p>
+      <button class="open-button" id="openInvitation" type="button">
+        <span>Mở thiệp</span>
+        <span class="open-button-arrow" aria-hidden="true">→</span>
+      </button>
+    </div>
+  </section>
+
+  <button class="music-toggle is-hidden" id="musicToggle" type="button" aria-label="Bật nhạc" aria-pressed="false">
+    <span class="music-icon" aria-hidden="true">♫</span>
+    <span class="music-state">Nhạc</span>
+  </button>
+
+  <main class="page-shell" id="invitationPage" aria-hidden="true">
+    <article class="invitation-card" aria-label="Thiệp mời lễ tốt nghiệp">
+      <div class="paper-texture" aria-hidden="true"></div>
+      <div class="sparkles" id="sparkles" aria-hidden="true"></div>
+
+      <img class="leaf-decoration leaf-top-left" src="assets/leaves.svg" alt="" aria-hidden="true">
+      <img class="leaf-decoration leaf-top-right" src="assets/leaves.svg" alt="" aria-hidden="true">
+      <img class="leaf-decoration leaf-middle-left" src="assets/leaves.svg" alt="" aria-hidden="true">
+      <img class="leaf-decoration leaf-middle-right" src="assets/leaves.svg" alt="" aria-hidden="true">
+      <img class="leaf-decoration leaf-bottom-left" src="assets/leaves.svg" alt="" aria-hidden="true">
+      <img class="leaf-decoration leaf-bottom-right" src="assets/leaves.svg" alt="" aria-hidden="true">
+
+      <header class="invitation-header">
+        <img class="header-cap sequence-reveal" id="headerCap" src="assets/graduation-cap.svg" alt="Mũ tốt nghiệp màu xanh">
+
+        <p class="top-invitation type-target" id="topInvitation" data-text="TRÂN TRỌNG KÍNH MỜI">TRÂN TRỌNG KÍNH MỜI</p>
+        <div class="ornamental-line sequence-reveal" id="topDivider" aria-hidden="true">
+          <span></span><b>♥</b><span></span>
+        </div>
+        <p class="attend-text type-target" id="attendText" data-text="TỚI DỰ">TỚI DỰ</p>
+        <h2 class="main-title type-target" id="mainTitle" data-text="LỄ TỐT NGHIỆP">LỄ TỐT NGHIỆP</h2>
+        <p class="script-title type-target" id="graduationText" data-text="Graduation">Graduation</p>
+      </header>
+
+      <section class="portrait-section" aria-label="Người tốt nghiệp">
+        <div class="portrait-halo sequence-reveal" id="portraitHalo" aria-hidden="true"></div>
+        <div class="portrait-frame sequence-reveal" id="portraitFrame">
+          <img src="assets/avatar.png" alt="Ảnh Đặng Bình An">
+        </div>
+
+        <div class="ribbon sequence-reveal" id="invitationRibbon">
+          <span>TRÂN TRỌNG KÍNH MỜI</span>
+        </div>
+
+        <h3 class="graduate-name type-target" id="graduateName" data-text="Đặng Bình An">Đặng Bình An</h3>
+        <div class="name-divider sequence-reveal" id="nameDivider" aria-hidden="true">
+          <span></span><b>♥</b><span></span>
+        </div>
+      </section>
+
+      <section class="event-details" aria-label="Thông tin sự kiện">
+        <article class="detail-item sequence-reveal" id="timeDetail">
+          <div class="detail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <circle cx="12" cy="12" r="8.5"></circle>
+              <path d="M12 7.5v5l3.5 2"></path>
+            </svg>
+          </div>
+          <h4>THỜI GIAN</h4>
+          <p class="detail-highlight" data-event-field="time">08:00</p>
+          <p>Ngày <span data-event-field="dateDisplay">30/07/2026</span></p>
+        </article>
+
+        <article class="detail-item detail-location sequence-reveal" id="locationDetail">
+          <div class="detail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11z"></path>
+              <circle cx="12" cy="10" r="2"></circle>
+            </svg>
+          </div>
+          <h4>ĐỊA ĐIỂM</h4>
+          <p data-event-field="address">387 Hoàng Quốc Việt</p>
+          <p data-event-field="venue">Trường Cao đẳng Sư phạm Trung ương</p>
+        </article>
+
+        <article class="detail-item sequence-reveal" id="dressDetail">
+          <div class="detail-icon graduation-detail-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img">
+              <path d="M3 8.8 12 4l9 4.8-9 4.8L3 8.8z"></path>
+              <path d="M7 11.1v4.2c2.8 2 7.2 2 10 0v-4.2"></path>
+              <path d="M21 9v6"></path>
+            </svg>
+          </div>
+          <h4>TRANG PHỤC</h4>
+          <p data-event-field="dressLine1">Lịch sự</p>
+          <p data-event-field="dressLine2">Trang trọng</p>
+        </article>
+      </section>
+
+      <section class="closing-section scroll-reveal" aria-label="Lời nhắn cuối thiệp">
+        <p class="closing-message type-target" id="closingMessage" data-text="SỰ HIỆN DIỆN CỦA BẠN LÀ NIỀM VINH HẠNH\nVÀ NGUỒN ĐỘNG VIÊN LỚN LAO ĐỐI VỚI CHÚNG TÔI!">
+          SỰ HIỆN DIỆN CỦA BẠN LÀ NIỀM VINH HẠNH<br>
+          VÀ NGUỒN ĐỘNG VIÊN LỚN LAO ĐỐI VỚI CHÚNG TÔI!
+        </p>
+        <div class="closing-divider" aria-hidden="true"><span></span><b>♥</b><span></span></div>
+        <p class="closing-script type-target" id="closingScript" data-text="Rất hân hạnh được đón tiếp!">Rất hân hạnh được đón tiếp!</p>
+      </section>
+
+      <section class="action-section scroll-reveal" aria-label="Các thao tác với thiệp">
+        <button class="action-button" id="calendarButton" type="button">
+          <span class="action-symbol" aria-hidden="true">＋</span>
+          Thêm vào lịch
+        </button>
+        <button class="action-button" id="mapButton" type="button">
+          <span class="action-symbol" aria-hidden="true">⌖</span>
+          Xem bản đồ
+        </button>
+        <button class="action-button action-button-primary" id="wishButton" type="button">
+          <span class="action-symbol" aria-hidden="true">♡</span>
+          Gửi lời chúc
+        </button>
+      </section>
+
+      <footer class="invitation-footer scroll-reveal">
+        <div class="footer-illustration" aria-hidden="true">
+          <img src="assets/graduation-cap.svg" alt="">
+          <img src="assets/diploma.svg" alt="">
+        </div>
+        <p>Hẹn gặp bạn tại ngày đặc biệt này.</p>
+      </footer>
+    </article>
+  </main>
+
+  <div class="modal-backdrop" id="wishModal" role="dialog" aria-modal="true" aria-labelledby="wishModalTitle" hidden>
+    <div class="wish-modal">
+      <button class="modal-close" id="closeWishModal" type="button" aria-label="Đóng cửa sổ">×</button>
+      <p class="modal-kicker">LỜI CHÚC TỪ BẠN</p>
+      <h2 id="wishModalTitle">Gửi một lời chúc nhỏ</h2>
+      <form id="wishForm">
+        <label for="guestName">Họ và tên</label>
+        <input id="guestName" name="guestName" type="text" maxlength="80" autocomplete="name" placeholder="Tên của bạn" required>
+
+        <label for="guestWish">Lời chúc</label>
+        <textarea id="guestWish" name="guestWish" rows="5" maxlength="500" placeholder="Viết lời chúc của bạn..." required></textarea>
+
+        <div class="modal-actions">
+          <button class="modal-cancel" id="cancelWish" type="button">Hủy</button>
+          <button class="modal-submit" type="submit">Gửi lời chúc</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <audio id="backgroundMusic" src="assets/music.mp3" preload="metadata" loop></audio>
+  <script src="script.js"></script>
+</body>
+</html>

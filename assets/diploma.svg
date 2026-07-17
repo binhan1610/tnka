@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150" role="img" aria-labelledby="title">
+  <title id="title">Cuộn bằng tốt nghiệp</title>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf1"/>
+      <stop offset="0.55" stop-color="#eee5c8"/>
+      <stop offset="1" stop-color="#d8c79d"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b693b"/>
+      <stop offset="1" stop-color="#08361f"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-8 120 75)">
+    <path d="M37 50h155c18 0 18 52 0 52H37c-18 0-18-52 0-52Z" fill="url(#paper)" stroke="#b7984a" stroke-width="2"/>
+    <ellipse cx="37" cy="76" rx="16" ry="26" fill="#e6d8b3" stroke="#b7984a" stroke-width="2"/>
+    <ellipse cx="192" cy="76" rx="16" ry="26" fill="#f8f0d8" stroke="#b7984a" stroke-width="2"/>
+    <path d="M108 49h25v54h-25z" fill="url(#ribbon)"/>
+    <path d="m108 101-9 28 22-11 22 11-10-28Z" fill="url(#ribbon)"/>
+    <circle cx="121" cy="76" r="13" fill="#d1ad4e" stroke="#f2db86" stroke-width="2"/>
+  </g>
+</svg>

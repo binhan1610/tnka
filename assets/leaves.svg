@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" role="img" aria-labelledby="title">
+  <title id="title">Cành lá màu xanh</title>
+  <defs>
+    <linearGradient id="stem" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#264b2d"/>
+      <stop offset="1" stop-color="#7d8b62"/>
+    </linearGradient>
+    <radialGradient id="leafA" cx="35%" cy="25%" r="90%">
+      <stop offset="0" stop-color="#a9b98b"/>
+      <stop offset="0.5" stop-color="#55754a"/>
+      <stop offset="1" stop-color="#1c4a2b"/>
+    </radialGradient>
+    <radialGradient id="leafB" cx="30%" cy="20%" r="100%">
+      <stop offset="0" stop-color="#c2cba2"/>
+      <stop offset="0.55" stop-color="#71825e"/>
+      <stop offset="1" stop-color="#315c38"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation=".55"/>
+    </filter>
+  </defs>
+  <path d="M23 329C80 278 121 223 167 162 211 104 273 66 397 31" fill="none" stroke="url(#stem)" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+  <g stroke="#315a38" stroke-width="1.4" opacity=".95">
+    <path d="M75 277C28 272 13 231 24 207c34 6 58 25 51 70Z" fill="url(#leafB)"/>
+    <path d="M93 258c-11-44 18-73 48-77 9 32-3 65-48 77Z" fill="url(#leafA)"/>
+    <path d="M130 213c-46-6-66-43-58-69 35 2 62 20 58 69Z" fill="url(#leafA)"/>
+    <path d="M151 188c-8-45 23-70 53-71 5 34-10 64-53 71Z" fill="url(#leafB)"/>
+    <path d="M190 151c-43-14-56-53-43-77 34 8 56 30 43 77Z" fill="url(#leafB)"/>
+    <path d="M216 127c1-44 35-62 64-56-2 33-22 59-64 56Z" fill="url(#leafA)"/>
+    <path d="M263 93c-37-20-43-58-25-78 31 13 48 39 25 78Z" fill="url(#leafA)"/>
+    <path d="M286 77c12-39 47-49 72-37-10 30-34 49-72 37Z" fill="url(#leafB)"/>
+    <path d="M332 53c-29-23-28-56-8-71 26 17 37 41 8 71Z" fill="url(#leafB)" transform="translate(0 19)"/>
+    <path d="M348 50c18-35 52-39 75-22-15 27-41 40-75 22Z" fill="url(#leafA)" transform="translate(-1 5)"/>
+  </g>
+  <g fill="#d2b35a" opacity=".6" filter="url(#soft)">
+    <circle cx="89" cy="297" r="3"/><circle cx="115" cy="246" r="2.5"/><circle cx="176" cy="175" r="3"/>
+    <circle cx="226" cy="116" r="2.5"/><circle cx="296" cy="77" r="3"/><circle cx="359" cy="41" r="2.5"/>
+  </g>
+</svg>
