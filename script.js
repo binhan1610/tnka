@@ -379,7 +379,37 @@ function setupScrollReveal() {
 
   targets.forEach((target) => observer.observe(target));
 }
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Lấy param 'name' từ URL (VD: index.html?name=Nguyễn Văn A)
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramName = urlParams.get('name');
 
+  // 2. Nếu có param 'name' trên URL thì tiến hành thay thế
+  if (paramName) {
+    // Cập nhật Title
+    document.title = `Thiệp mời lễ tốt nghiệp - ${paramName}`;
+
+    // Cập nhật Meta Description
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", `Thiệp mời lễ tốt nghiệp của ${paramName}`);
+    }
+
+    // Cập nhật tên ở màn hình ngoài
+    const openingName = document.querySelector('.opening-name');
+    if (openingName) {
+      openingName.textContent = paramName;
+    }
+
+    // Cập nhật tên ở màn hình trong thiệp
+    const graduateName = document.getElementById('graduateName');
+    if (graduateName) {
+      graduateName.textContent = paramName;
+      // Quan trọng: Phải cập nhật cả data-text để không làm hỏng hiệu ứng chữ
+      graduateName.setAttribute('data-text', paramName);
+    }
+  }
+});
 applyEventData();
 initializeTypeTargets();
 createSparkles();
