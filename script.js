@@ -5,18 +5,17 @@
  * Thời gian trong dateISO được hiểu theo múi giờ Việt Nam (+07:00).
  */
 const eventData = {
-  graduateName: "Đặng Bình An",
-  title: "Lễ tốt nghiệp - Đặng Bình An",
-  time: "08:00",
-  dateDisplay: "30/07/2026",
-  dateISO: "2026-07-30T08:00:00+07:00",
-  endISO: "2026-07-30T10:00:00+07:00",
-  address: "387 Hoàng Quốc Việt",
-  venue: "Trường Cao đẳng Sư phạm Trung ương",
-  mapQuery: "387 Hoàng Quốc Việt, Hà Nội",
+  graduateName: "Nguyễn Thị Bảo\nNgọc",
+  title: "Lễ tốt nghiệp - Nguyễn Thị Bảo Ngọc",
+  time: "14:20",
+  dateDisplay: "23/08/2026",
+  dateISO: "2026-08-23T14:20:00+07:00",
+  endISO: "2026-08-23T16:20:00+07:00",
+  address: "Trung tâm Hội nghị quốc gia, Đại lộ Thăng Long, Hà Nội",
+  venue: "",
   dressLine1: "Lịch sự",
   dressLine2: "Trang trọng",
-  description: "Trân trọng kính mời bạn tới dự lễ tốt nghiệp của Đặng Bình An."
+  description: "Trân trọng kính mời bạn đến dự lễ tốt nghiệp của Nguyễn Thị Bảo Ngọc."
 };
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -146,6 +145,7 @@ async function runOpeningSequence() {
 
   const headerCap = document.getElementById("headerCap");
   const topInvitation = document.getElementById("topInvitation");
+  const inviteeName = document.getElementById("inviteeName");
   const topDivider = document.getElementById("topDivider");
   const attendText = document.getElementById("attendText");
   const mainTitle = document.getElementById("mainTitle");
@@ -163,6 +163,7 @@ async function runOpeningSequence() {
 
   await revealElement(headerCap, 400);
   await typeText(topInvitation, topInvitation.dataset.text, 52);
+  await typeText(inviteeName, inviteeName.dataset.text, 70);
   await revealElement(topDivider, 200);
   await typeText(attendText, attendText.dataset.text, 80);
   await typeText(mainTitle, mainTitle.dataset.text, 82);
@@ -242,10 +243,15 @@ function escapeICS(value) {
     .replace(/;/g, "\\;");
 }
 
+/** Địa điểm dùng chung cho bản đồ và tệp lịch để không bị lệch khi cập nhật. */
+function getEventLocation() {
+  return [eventData.venue, eventData.address].filter(Boolean).join(", ");
+}
+
 /** Tạo file .ics trực tiếp trên trình duyệt, không cần backend. */
 function downloadCalendarFile() {
   const now = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}Z$/, "Z");
-  const location = `${eventData.address}, ${eventData.venue}`;
+  const location = getEventLocation();
 
   const icsContent = [
     "BEGIN:VCALENDAR",
@@ -284,7 +290,7 @@ function downloadCalendarFile() {
 
 document.getElementById("calendarButton").addEventListener("click", downloadCalendarFile);
 document.getElementById("mapButton").addEventListener("click", () => {
-  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(eventData.mapQuery)}`;
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(getEventLocation())}`;
   window.open(mapUrl, "_blank", "noopener,noreferrer");
 });
 
@@ -401,12 +407,12 @@ document.addEventListener("DOMContentLoaded", () => {
       openingName.textContent = paramName;
     }
 
-    // Cập nhật tên ở màn hình trong thiệp
-    const graduateName = document.getElementById('graduateName');
-    if (graduateName) {
-      graduateName.textContent = paramName;
+    // Cập nhật tên khách được mời trong thiệp.
+    const inviteeName = document.getElementById('inviteeName');
+    if (inviteeName) {
+      inviteeName.textContent = paramName;
       // Quan trọng: Phải cập nhật cả data-text để không làm hỏng hiệu ứng chữ
-      graduateName.setAttribute('data-text', paramName);
+      inviteeName.setAttribute('data-text', paramName);
     }
   }
 });
