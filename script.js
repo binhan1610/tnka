@@ -391,7 +391,7 @@ function setupScrollReveal() {
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Lấy param 'name' từ URL (VD: index.html?name=Nguyễn Văn A)
   const urlParams = new URLSearchParams(window.location.search);
-  const paramName = urlParams.get('name');
+  const paramName = urlParams.get('name')?.replace(/\|/g, " ");
 
   // 2. Nếu có param 'name' trên URL thì tiến hành thay thế
   if (paramName) {
