@@ -5,7 +5,7 @@
  * Thời gian trong dateISO được hiểu theo múi giờ Việt Nam (+07:00).
  */
 const eventData = {
-  graduateName: "Nguyễn Thị Bảo\nNgọc",
+  graduateName: "Nguyễn Thị Bảo Ngọc",
   title: "Lễ tốt nghiệp - Nguyễn Thị Bảo Ngọc",
   time: "14:20",
   dateDisplay: "23/08/2026",
@@ -41,11 +41,13 @@ function wait(milliseconds) {
  * Intl.Segmenter được ưu tiên; Array.from là phương án dự phòng.
  */
 function splitGraphemes(text) {
+  const normalizedText = String(text).replace(/\|/g, " ");
+
   if (typeof Intl !== "undefined" && typeof Intl.Segmenter === "function") {
     const segmenter = new Intl.Segmenter("vi", { granularity: "grapheme" });
-    return Array.from(segmenter.segment(text), (item) => item.segment);
+    return Array.from(segmenter.segment(normalizedText), (item) => item.segment);
   }
-  return Array.from(text);
+  return Array.from(normalizedText);
 }
 
 /**
@@ -55,13 +57,14 @@ function splitGraphemes(text) {
 async function typeText(element, text, speed = 70) {
   if (!element) return;
 
+  const displayText = String(text).replace(/\|/g, " ");
   element.textContent = "";
-  element.setAttribute("aria-label", text.replace(/\n/g, " "));
+  element.setAttribute("aria-label", displayText.replace(/\n/g, " "));
 
   const fragment = document.createDocumentFragment();
   const characterElements = [];
 
-  splitGraphemes(text).forEach((character) => {
+  splitGraphemes(displayText).forEach((character) => {
     if (character === "\n") {
       fragment.appendChild(document.createElement("br"));
       return;
@@ -109,7 +112,7 @@ function applyEventData() {
 /** Xóa nội dung mẫu trước khi thiệp hiện để tránh chữ bị lóe trước animation. */
 function initializeTypeTargets() {
   document.querySelectorAll(".type-target").forEach((element) => {
-    const text = element.dataset.text || element.textContent.trim();
+    const text = (element.dataset.text || element.textContent.trim()).replace(/\|/g, " ");
     element.dataset.text = text;
     element.setAttribute("aria-label", text.replace(/\n/g, " "));
     element.textContent = "";

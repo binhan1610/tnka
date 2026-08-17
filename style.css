@@ -582,7 +582,7 @@ img {
   margin: 3px 0 0;
   color: var(--green-950);
   font-family: var(--script);
-  font-size: clamp(2.3rem, 10vw, 4.6rem);
+  font-size: clamp(2rem, 8.5vw, 3.8rem);
   font-weight: 400;
   line-height: 1.05;
   white-space: nowrap;
