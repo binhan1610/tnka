@@ -7,10 +7,10 @@
 const eventData = {
   graduateName: "Nguyễn Thị Bảo Ngọc",
   title: "Lễ tốt nghiệp - Nguyễn Thị Bảo Ngọc",
-  time: "14:20",
+  time: "9:00",
   dateDisplay: "23/08/2026",
-  dateISO: "2026-08-23T14:20:00+07:00",
-  endISO: "2026-08-23T16:20:00+07:00",
+  dateISO: "2026-08-23T09:00:00+07:00",
+  endISO: "2026-08-23T12:00:00+07:00",
   address: "Trung tâm Hội nghị quốc gia, Đại lộ Thăng Long, Hà Nội",
   venue: "",
   dressLine1: "Lịch sự",
@@ -30,6 +30,7 @@ const toast = document.getElementById("toast");
 let animationStarted = false;
 let toastTimer;
 let lastFocusedElement = null;
+const WISH_STORAGE_KEY = "graduationWishes";
 
 /** Chờ một khoảng thời gian và trả về Promise để dùng cùng async/await. */
 function wait(milliseconds) {
@@ -164,21 +165,22 @@ async function runOpeningSequence() {
   const closingMessage = document.getElementById("closingMessage");
   const closingScript = document.getElementById("closingScript");
 
-  await revealElement(headerCap, 400);
-  await typeText(topInvitation, topInvitation.dataset.text, 52);
-  await typeText(inviteeName, inviteeName.dataset.text, 70);
-  await revealElement(topDivider, 200);
-  await typeText(attendText, attendText.dataset.text, 80);
-  await typeText(mainTitle, mainTitle.dataset.text, 82);
-  await typeText(graduationText, graduationText.dataset.text, 95);
-  await revealElement(portraitHalo, 120);
-  await revealElement(portraitFrame, 900);
-  await revealElement(invitationRibbon, 720);
-  await typeText(graduateName, graduateName.dataset.text, 105);
-  await revealElement(nameDivider, 240);
-  await revealElement(timeDetail, 420);
-  await revealElement(locationDetail, 420);
-  await revealElement(dressDetail, 520);
+  // Rút ngắn mỗi thời gian còn 2/3 để thiệp xuất hiện nhanh hơn.
+  await revealElement(headerCap, 267);
+  await typeText(topInvitation, topInvitation.dataset.text, 35);
+  await typeText(inviteeName, inviteeName.dataset.text, 47);
+  await revealElement(topDivider, 133);
+  await typeText(attendText, attendText.dataset.text, 53);
+  await typeText(mainTitle, mainTitle.dataset.text, 55);
+  await typeText(graduationText, graduationText.dataset.text, 63);
+  await revealElement(portraitHalo, 80);
+  await revealElement(portraitFrame, 600);
+  await revealElement(invitationRibbon, 480);
+  await typeText(graduateName, graduateName.dataset.text, 70);
+  await revealElement(nameDivider, 160);
+  await revealElement(timeDetail, 280);
+  await revealElement(locationDetail, 280);
+  await revealElement(dressDetail, 347);
 
   const closingSection = document.querySelector(".closing-section");
   closingSection?.classList.add("is-revealed");
@@ -346,10 +348,10 @@ wishForm.addEventListener("submit", (event) => {
   };
 
   try {
-    const oldEntries = JSON.parse(localStorage.getItem("graduationWishes") || "[]");
+    const oldEntries = JSON.parse(localStorage.getItem(WISH_STORAGE_KEY) || "[]");
     const entries = Array.isArray(oldEntries) ? oldEntries : [];
     entries.push(wishEntry);
-    localStorage.setItem("graduationWishes", JSON.stringify(entries));
+    localStorage.setItem(WISH_STORAGE_KEY, JSON.stringify(entries));
   } catch (_error) {
     // Một số trình duyệt chặn localStorage khi mở file local; thiệp vẫn hoạt động bình thường.
   }
